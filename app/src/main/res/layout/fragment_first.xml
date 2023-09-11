@@ -12,8 +12,9 @@
         android:layout_width="222dp"
         android:layout_height="47dp"
         android:text="Тема 1"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="240dp" />
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/text1"
@@ -75,26 +76,31 @@
         android:id="@+id/textView"
         android:layout_width="208dp"
         android:layout_height="25dp"
+        android:layout_marginTop="64dp"
         android:text="Выберите тему:"
         android:textColor="@color/black"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="190dp" />
+        app:layout_constraintEnd_toEndOf="@+id/text1"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/text1"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="222dp"
         android:layout_height="47dp"
         android:text="Тема 2"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="296dp" />
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="222dp"
         android:layout_height="47dp"
         android:text="Тема 3"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="351dp" />
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
