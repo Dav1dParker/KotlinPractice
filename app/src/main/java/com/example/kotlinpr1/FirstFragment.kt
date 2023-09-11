@@ -23,7 +23,6 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFirstBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -45,24 +44,26 @@ class FirstFragment : Fragment() {
             navController.popBackStack()
         }
 
-//        val fragmentManager = requireActivity().supportFragmentManager
-//
-//        binding.SecondFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, SecondFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.ThirdFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, ThirdFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.backBtn.setOnClickListener {
-//            fragmentManager.popBackStack()
-//        }
+        val fragmentManager = requireActivity().supportFragmentManager
+            /*
+        binding.SecondFragmentBtn.setOnClickListener {
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container_view, SecondFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.ThirdFragmentBtn.setOnClickListener {
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container_view, ThirdFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.backBtn.setOnClickListener {
+            fragmentManager.popBackStack()
+        }
+        */
+
     }
 }

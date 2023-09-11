@@ -7,16 +7,26 @@
     android:background="@color/secondaryBackground"
     tools:context=".FirstFragment">
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="222dp"
+        android:layout_height="47dp"
+        android:text="Тема 1"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="240dp" />
+
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/first_fragment_label"
+        android:text="Викторина"
         android:textColor="@color/black"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.134" />
 
     <Button
         android:id="@+id/SecondFragment_btn"
@@ -60,5 +70,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="208dp"
+        android:layout_height="25dp"
+        android:text="Выберите тему:"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="190dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="222dp"
+        android:layout_height="47dp"
+        android:text="Тема 2"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="222dp"
+        android:layout_height="47dp"
+        android:text="Тема 3"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="351dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
