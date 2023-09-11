@@ -61,10 +61,12 @@ class FirstFragment : Fragment() {
         }
 
         binding.ThirdFragmentBtn.setOnClickListener {
+            //Toast.makeText(context, "Hi",Toast.LENGTH_LONG).show()
             val transaction = fragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container_view, ThirdFragment())
             transaction.addToBackStack(null)
             transaction.commit()
+            //Toast.makeText(context, "Ho",Toast.LENGTH_LONG).show()
         }
 
         binding.backBtn.setOnClickListener {
