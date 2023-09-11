@@ -26,26 +26,31 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
+        //start
+            val navController = NavHostFragment.findNavController(this)
 
-        val navController = NavHostFragment.findNavController(this)
+            binding.SecondFragmentBtn.setOnClickListener {
+                navController.navigate(R.id.action_firstFragment_to_secondFragment)
+            }
 
-        binding.SecondFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_firstFragment_to_secondFragment)
-        }
+            binding.ThirdFragmentBtn.setOnClickListener {
+                navController.navigate(R.id.action_firstFragment_to_thirdFragment)
+            }
 
-        binding.ThirdFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_firstFragment_to_thirdFragment)
-        }
-
-        binding.backBtn.setOnClickListener {
-            navController.popBackStack()
-        }
-
+            binding.backBtn.setOnClickListener {
+                navController.popBackStack()
+            }
+    //end
+    */
+        //start2
         val fragmentManager = requireActivity().supportFragmentManager
-            /*
+
         binding.SecondFragmentBtn.setOnClickListener {
             val transaction = fragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container_view, SecondFragment())
@@ -63,7 +68,8 @@ class FirstFragment : Fragment() {
         binding.backBtn.setOnClickListener {
             fragmentManager.popBackStack()
         }
-        */
+        //end2
+
 
     }
 }

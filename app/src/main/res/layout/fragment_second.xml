@@ -52,32 +52,37 @@
         android:id="@+id/button5"
         android:layout_width="253dp"
         android:layout_height="53dp"
+        android:layout_marginTop="52dp"
         android:text="Ответ 1"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text2" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="253dp"
         android:layout_height="53dp"
         android:text="Ответ 2"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="283dp" />
+        app:layout_constraintEnd_toEndOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="253dp"
         android:layout_height="53dp"
         android:text="Ответ 3"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="339dp" />
+        app:layout_constraintEnd_toEndOf="@+id/button6"
+        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="253dp"
         android:layout_height="53dp"
         android:text="Ответ 4"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="392dp" />
+        app:layout_constraintEnd_toEndOf="@+id/button7"
+        app:layout_constraintStart_toStartOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,15 +17,17 @@ class ThirdFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentThirdBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val navController = NavHostFragment.findNavController(this)
 
+        /*
+        //start
         binding.FirstFragmentBtn.setOnClickListener {
             navController.navigate(R.id.action_thirdFragment_to_firstFragment)
         }
@@ -37,26 +39,30 @@ class ThirdFragment : Fragment() {
         binding.backBtn.setOnClickListener {
             navController.popBackStack()
         }
+        //end
+        */
 
-//        val fragmentManager = requireActivity().supportFragmentManager
-//
-//        binding.FirstFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, FirstFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.SecondFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, SecondFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.backBtn.setOnClickListener {
-//            fragmentManager.popBackStack()
-//        }
+        //start2
+        val fragmentManager = requireActivity().supportFragmentManager
+
+        binding.FirstFragmentBtn.setOnClickListener {
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container_view, FirstFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.SecondFragmentBtn.setOnClickListener {
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container_view, SecondFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        binding.backBtn.setOnClickListener {
+            fragmentManager.popBackStack()
+        }
+            //end2
     }
 
 }
