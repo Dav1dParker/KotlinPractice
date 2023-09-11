@@ -44,26 +44,6 @@ class FirstFragment : Fragment() {
             navController.popBackStack()
         }
 
-        val fragmentManager = requireActivity().supportFragmentManager
-            /*
-        binding.SecondFragmentBtn.setOnClickListener {
-            val transaction = fragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container_view, SecondFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-
-        binding.ThirdFragmentBtn.setOnClickListener {
-            val transaction = fragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container_view, ThirdFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-
-        binding.backBtn.setOnClickListener {
-            fragmentManager.popBackStack()
-        }
-        */
 
     }
 }

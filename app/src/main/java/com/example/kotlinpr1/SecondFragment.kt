@@ -38,24 +38,5 @@ class SecondFragment : Fragment() {
             navController.popBackStack()
         }
 
-//        val fragmentManager = requireActivity().supportFragmentManager
-//
-//        binding.FirstFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, FirstFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.ThirdFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, ThirdFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.backBtn.setOnClickListener {
-//            fragmentManager.popBackStack()
-//        }
     }
 }

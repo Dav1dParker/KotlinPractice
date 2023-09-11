@@ -17,7 +17,6 @@ class ThirdFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentThirdBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -37,26 +36,6 @@ class ThirdFragment : Fragment() {
         binding.backBtn.setOnClickListener {
             navController.popBackStack()
         }
-
-//        val fragmentManager = requireActivity().supportFragmentManager
-//
-//        binding.FirstFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, FirstFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.SecondFragmentBtn.setOnClickListener {
-//            val transaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.fragment_container_view, SecondFragment())
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
-//
-//        binding.backBtn.setOnClickListener {
-//            fragmentManager.popBackStack()
-//        }
     }
 
 }
