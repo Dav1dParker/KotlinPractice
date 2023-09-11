@@ -32,23 +32,6 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*
-        //start
-            val navController = NavHostFragment.findNavController(this)
-
-            binding.SecondFragmentBtn.setOnClickListener {
-                navController.navigate(R.id.action_firstFragment_to_secondFragment)
-            }
-
-            binding.ThirdFragmentBtn.setOnClickListener {
-                navController.navigate(R.id.action_firstFragment_to_thirdFragment)
-            }
-
-            binding.backBtn.setOnClickListener {
-                navController.popBackStack()
-            }
-    //end
-    */
         //start2
         val fragmentManager = requireActivity().supportFragmentManager
 
