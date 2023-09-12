@@ -21,7 +21,6 @@ class ThirdFragment : Fragment() {
     }
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -45,7 +44,7 @@ class ThirdFragment : Fragment() {
         binding.backBtn.setOnClickListener {
             fragmentManager.popBackStack()
         }
-            //end2
+        //end2
     }
 
 }
