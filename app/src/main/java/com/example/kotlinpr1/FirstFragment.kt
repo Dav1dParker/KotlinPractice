@@ -1,3 +1,4 @@
+
 package com.example.kotlinpr1
 
 import android.content.Intent
@@ -15,8 +16,6 @@ import java.util.Locale
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
-    private var currentLanguage = "en"
-    lateinit var locale: Locale
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +41,25 @@ class FirstFragment : Fragment() {
 
         binding.backBtn.setOnClickListener {
             navController.popBackStack()
+        }
+
+        //On click listener to change language form english to russian and vice versa
+        binding.LanguageChange.setOnClickListener {
+            lateinit var locale: Locale
+            //translate this from java to kotlin: Locale current = getResources().getConfiguration().getLocales().get(0);
+
+            if (resources.configuration.locales[0] == Locale("en")) {
+                locale = Locale("ru")
+            } else {
+                locale = Locale("en")
+            }
+            Locale.setDefault(locale)
+            val config = resources.configuration
+            config.setLocale(locale)
+            resources.updateConfiguration(config, resources.displayMetrics)
+            val refresh = Intent(activity, MainActivity::class.java)
+            activity?.finish()
+            startActivity(refresh)
         }
 
 
