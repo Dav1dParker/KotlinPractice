@@ -8,4 +8,9 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="back">Back</string>
+    <string name ="Topic1">First topic</string>
+    <string name ="Topic2">Second topic</string>
+    <string name ="Topic3">Third topic</string>
+    <string name ="MainScreenTitle">Quiz</string>
+    <string name ="ChooseTopic">Choose topic you want to play:</string>
 </resources>

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">QuizApp</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Настройки</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Первый фрагмент</string>
     <string name="second_fragment_label">Второй фрагмент</string>
@@ -8,5 +8,10 @@
     <string name="next">Следующий</string>
     <string name="previous">Предыдущий</string>
     <string name="back">Назад</string>
+    <string name ="Topic1">Первая тема</string>
+    <string name ="Topic2">Вторая тема</string>
+    <string name ="Topic3">Третья тема</string>
+    <string name ="MainScreenTitle">Викторина</string>
+    <string name ="ChooseTopic">Выберите тему викторины:</string>
 
 </resources>

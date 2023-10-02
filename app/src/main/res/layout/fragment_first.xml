@@ -11,7 +11,7 @@
         android:id="@+id/button3"
         android:layout_width="222dp"
         android:layout_height="47dp"
-        android:text="Тема 1"
+        android:text="@string/Topic1"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -20,7 +20,7 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Викторина"
+        android:text="@string/MainScreenTitle"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,28 +57,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/Language_change"
-        android:layout_width="54dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/black"
-        android:text=""
-        android:textAlignment="center"
-        android:textSize="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="208dp"
         android:layout_height="25dp"
         android:layout_marginTop="64dp"
-        android:text="Выберите тему:"
-        android:textColor="@color/black"
+        android:text="@string/ChooseTopic"
+        android:gravity="center"
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="@+id/text1"
         app:layout_constraintHorizontal_bias="0.506"
@@ -89,7 +76,7 @@
         android:id="@+id/button2"
         android:layout_width="222dp"
         android:layout_height="47dp"
-        android:text="Тема 2"
+        android:text="@string/Topic2"
         app:layout_constraintEnd_toEndOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
@@ -98,9 +85,22 @@
         android:id="@+id/button4"
         android:layout_width="222dp"
         android:layout_height="47dp"
-        android:text="Тема 3"
+        android:text="@string/Topic3"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <ImageButton
+        android:id="@+id/Language_change"
+        android:backgroundTint="@color/mainBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/localeicon"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

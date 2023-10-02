@@ -61,7 +61,5 @@ class FirstFragment : Fragment() {
             activity?.finish()
             startActivity(refresh)
         }
-
-
     }
 }
