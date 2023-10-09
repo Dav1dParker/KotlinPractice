@@ -38,7 +38,7 @@
         android:id="@+id/FirstFragment_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/first_fragment_label"
+        android:text="@string/Main"
         app:layout_constraintBottom_toTopOf="@id/SecondFragment_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -47,7 +47,7 @@
         android:id="@+id/SecondFragment_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/second_fragment_label"
+        android:text="@string/Start"
         app:layout_constraintBottom_toTopOf="@id/back_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -60,5 +60,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/GitLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="@string/gitLink"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text4"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/text4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.557" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

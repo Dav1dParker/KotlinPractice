@@ -33,7 +33,7 @@
         android:id="@+id/SecondFragment_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/second_fragment_label"
+        android:text="@string/Start"
         app:layout_constraintBottom_toTopOf="@id/ThirdFragment_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -42,7 +42,7 @@
         android:id="@+id/ThirdFragment_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/third_fragment_label"
+        android:text="@string/Settings"
         app:layout_constraintBottom_toTopOf="@id/back_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
