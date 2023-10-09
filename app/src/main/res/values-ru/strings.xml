@@ -13,5 +13,12 @@
     <string name ="Topic3">Третья тема</string>
     <string name ="MainScreenTitle">Викторина</string>
     <string name ="ChooseTopic">Выберите тему викторины:</string>
+    <string name ="Question">Вопрос:</string>
+    <string name ="Answer1">Ответ 1</string>
+    <string name ="Answer2">Ответ 2</string>
+    <string name ="Answer3">Ответ 3</string>
+    <string name ="Answer4">Ответ 4</string>
+    <string name ="AppInfo">О этом приложении:</string>
+    <string name ="AppVersion">Версия приложения: 0.2</string>
 
 </resources>

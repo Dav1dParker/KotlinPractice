@@ -13,7 +13,7 @@ android {
         applicationId = "com.example.kotlinpr1"
         minSdk = 26
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

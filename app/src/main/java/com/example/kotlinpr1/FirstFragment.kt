@@ -1,6 +1,4 @@
-
 package com.example.kotlinpr1
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -46,8 +44,6 @@ class FirstFragment : Fragment() {
         //On click listener to change language form english to russian and vice versa
         binding.LanguageChange.setOnClickListener {
             lateinit var locale: Locale
-            //translate this from java to kotlin: Locale current = getResources().getConfiguration().getLocales().get(0);
-
             if (resources.configuration.locales[0] == Locale("en")) {
                 locale = Locale("ru")
             } else {

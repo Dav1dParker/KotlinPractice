@@ -13,5 +13,12 @@
     <string name ="Topic3">Third topic</string>
     <string name ="MainScreenTitle">Quiz</string>
     <string name ="ChooseTopic">Choose topic you want to play:</string>
+    <string name ="Question">Question:</string>
+    <string name ="Answer1">Answer 1</string>
+    <string name ="Answer2">Answer 2</string>
+    <string name ="Answer3">Answer 3</string>
+    <string name ="Answer4">Answer 4</string>
+    <string name ="AppInfo">About this application:</string>
+    <string name ="AppVersion">Version of application: 0.2</string>
 
 </resources>
