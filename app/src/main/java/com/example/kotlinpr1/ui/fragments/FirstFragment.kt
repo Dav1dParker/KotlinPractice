@@ -1,4 +1,4 @@
-package com.example.kotlinpr1
+package com.example.kotlinpr1.ui.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
+import com.example.kotlinpr1.ui.activities.MainActivity
+import com.example.kotlinpr1.R
 import com.example.kotlinpr1.databinding.FragmentFirstBinding
 import java.util.Locale
 

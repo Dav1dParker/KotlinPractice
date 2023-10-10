@@ -1,4 +1,4 @@
-package com.example.kotlinpr1
+package com.example.kotlinpr1.data.repositories
 
 import androidx.lifecycle.LiveData
 

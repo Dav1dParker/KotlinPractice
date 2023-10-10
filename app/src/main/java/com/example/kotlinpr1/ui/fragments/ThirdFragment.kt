@@ -1,4 +1,4 @@
-package com.example.kotlinpr1
+package com.example.kotlinpr1.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import com.example.kotlinpr1.databinding.FragmentSecondBinding
+import com.example.kotlinpr1.R
+import com.example.kotlinpr1.databinding.FragmentThirdBinding
 
+class ThirdFragment : Fragment() {
 
-class SecondFragment : Fragment() {
-
-    private lateinit var binding: FragmentSecondBinding
+    private lateinit var binding: FragmentThirdBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSecondBinding.inflate(inflater, container, false)
+        binding = FragmentThirdBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -27,16 +27,16 @@ class SecondFragment : Fragment() {
         val navController = NavHostFragment.findNavController(this)
 
         binding.FirstFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_secondFragment_to_firstFragment)
+            navController.navigate(R.id.action_thirdFragment_to_firstFragment)
         }
 
-        binding.ThirdFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_secondFragment_to_thirdFragment)
+        binding.SecondFragmentBtn.setOnClickListener {
+            navController.navigate(R.id.action_thirdFragment_to_secondFragment)
         }
 
         binding.backBtn.setOnClickListener {
             navController.popBackStack()
         }
-
     }
+
 }
