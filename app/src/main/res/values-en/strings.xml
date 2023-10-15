@@ -19,6 +19,12 @@
     <string name ="Answer3">Answer 3</string>
     <string name ="Answer4">Answer 4</string>
     <string name ="AppInfo">About this application:</string>
+    <string name ="Log_out">Log out</string>
+    <string name ="Home">Home</string>
+    <string name ="Exit">Exit</string>
+    <string name ="ShowDatabase">Show database</string>
+    <string name ="Open">Open</string>
+    <string name ="Close">Close</string>
     <string name ="AppVersion">Version of application: 0.2</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 

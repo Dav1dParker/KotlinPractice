@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <!--<group android:checkableBehavior="single">
+        &lt;!&ndash;<item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/Home" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/Settings" />
+        <item
+            android:id="@+id/nav_logOut"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/Log_out" />
+        <item
+            android:id="@+id/nav_ShowDatabase"
+            android:icon="@drawable/ic_database"
+            android:title="@string/ShowDatabase" />
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/ic_exit"
+            android:title="@string/Exit" />&ndash;&gt;
+
+
+    </group>-->
+
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/Home" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/Settings" />
+    <item
+        android:id="@+id/nav_logOut"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/Log_out" />
+    <item
+        android:id="@+id/nav_ShowDatabase"
+        android:icon="@drawable/ic_database"
+        android:title="@string/ShowDatabase" />
+    <item
+        android:id="@+id/nav_exit"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/Exit" />
+
+
+</menu>
