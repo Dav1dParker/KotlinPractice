@@ -25,7 +25,7 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navController = NavHostFragment.findNavController(this)
+        /*val navController = NavHostFragment.findNavController(this)
 
         binding.FirstFragmentBtn.setOnClickListener {
             navController.navigate(R.id.action_secondFragment_to_firstFragment)
@@ -37,7 +37,7 @@ class SecondFragment : Fragment() {
 
         binding.backBtn.setOnClickListener {
             navController.popBackStack()
-        }
+        }*/
 
     }
 }

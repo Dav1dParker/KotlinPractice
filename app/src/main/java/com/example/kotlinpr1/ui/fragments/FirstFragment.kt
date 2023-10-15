@@ -29,18 +29,18 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val navController = NavHostFragment.findNavController(this)
+        //val navController = NavHostFragment.findNavController(this)
 
         binding.SecondFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_firstFragment_to_secondFragment)
+            //navController.navigate(R.id.action_firstFragment_to_secondFragment)
         }
 
         binding.ThirdFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_firstFragment_to_thirdFragment)
+            //navController.navigate(R.id.action_firstFragment_to_thirdFragment)
         }
 
         binding.backBtn.setOnClickListener {
-            navController.popBackStack()
+            //navController.popBackStack()
         }
 
         //On click listener to change language form english to russian and vice versa

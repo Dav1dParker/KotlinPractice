@@ -1,21 +1,15 @@
 package com.example.kotlinpr1.ui.activities
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
+import androidx.fragment.app.Fragment
 import com.example.kotlinpr1.R
 import com.example.kotlinpr1.databinding.ActivityMainBinding
 import com.example.kotlinpr1.ui.fragments.FirstFragment
-import com.example.kotlinpr1.ui.fragments.SecondFragment
 import com.example.kotlinpr1.ui.fragments.ThirdFragment
 import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
 import com.google.android.material.navigation.NavigationView
@@ -26,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var toggle: ActionBarDrawerToggle
+    lateinit var drawerLayout: DrawerLayout
 
 
 
@@ -34,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        drawerLayout  = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close)
@@ -47,19 +42,22 @@ class MainActivity : AppCompatActivity() {
 
 
         navView.setNavigationItemSelectedListener {
+            it.isChecked = true
             when (it.itemId) {
                 R.id.nav_home -> {
                     //open first fragment
-                    val transaction = supportFragmentManager.beginTransaction()
+                    replaceFragment(FirstFragment(), it.title.toString())
+                    /*val transaction = supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.nav_host_fragment, FirstFragment())
-                    transaction.commit()
+                    transaction.commit()*/
                 }
 
                 R.id.nav_settings -> {
                     //open third fragment
-                    val transaction = supportFragmentManager.beginTransaction()
+                    replaceFragment(ThirdFragment(), it.title.toString())
+                    /*val transaction = supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.nav_host_fragment, ThirdFragment())
-                    transaction.commit()
+                    transaction.commit()*/
                     //supportFragmentManager.beginTransaction().replace(R.id.fragment_container, GalleryFragment()).commit()
                     //drawerLayout.closeDrawers()
                 }
@@ -82,6 +80,16 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun replaceFragment(fragment: Fragment, title: String)
+    {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+        fragmentTransaction.commit()
+        drawerLayout.closeDrawers()
+        setTitle(title)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
