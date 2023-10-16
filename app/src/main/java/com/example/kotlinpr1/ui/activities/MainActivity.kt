@@ -6,13 +6,20 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.*
 import com.example.kotlinpr1.R
+import com.example.kotlinpr1.data.repositories.QuestionDao
+import com.example.kotlinpr1.data.repositories.QuestionsEntity
+import com.example.kotlinpr1.data.repositories.QuizDataBase
+import com.example.kotlinpr1.data.repositories.QuizRepository
 import com.example.kotlinpr1.databinding.ActivityMainBinding
+import com.example.kotlinpr1.domain.ApiInterface
 import com.example.kotlinpr1.ui.fragments.FirstFragment
 import com.example.kotlinpr1.ui.fragments.ThirdFragment
 import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
 import com.google.android.material.navigation.NavigationView
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +33,36 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        //Quiz Logic starts
+        val endpoint: String = "https://opentdb.com/"
+
+        //val doneLayout: ConstraintLayout
+        //Get data from API using retrofit
+        val retrofit = Retrofit.Builder().baseUrl(endpoint).addConverterFactory(GsonConverterFactory.create()).build()
+        val service = retrofit.create(ApiInterface::class.java)
+        val call = service.getQuizResults(5, 10, "easy", "multiple")
+
+
+        
+
+
+        //Quiz Logic ends
+
+
+        //DB logic starts
+        val QuestionDao = QuizDataBase.getDataBase(application).QuestionDao()
+        val repository = QuizRepository(QuestionDao)
+        val entity = QuestionsEntity(1, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
+        repository.insertQuestions(entity)
+        repository.getAll.observe(this){
+            it.forEach{
+                println(it)
+            }
+        }
+
+        //DB logic ends
 
 
         drawerLayout = findViewById(R.id.drawer_layout)

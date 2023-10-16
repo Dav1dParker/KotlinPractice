@@ -8,6 +8,7 @@
     tools:context=".ui.fragments.FirstFragment">
 
     <Button
+        android:backgroundTint="@color/mainBackground"
         android:id="@+id/button3"
         android:layout_width="222dp"
         android:layout_height="47dp"
@@ -30,6 +31,7 @@
         app:layout_constraintVertical_bias="0.134" />
 
     <Button
+        android:backgroundTint="@color/mainBackground"
         android:id="@+id/SecondFragment_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,6 +41,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:backgroundTint="@color/mainBackground"
         android:id="@+id/ThirdFragment_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +51,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:backgroundTint="@color/mainBackground"
         android:id="@+id/back_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,8 +79,11 @@
         android:id="@+id/button2"
         android:layout_width="222dp"
         android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/mainBackground"
         android:text="@string/Topic2"
         app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
@@ -84,8 +91,11 @@
         android:id="@+id/button4"
         android:layout_width="222dp"
         android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/mainBackground"
         android:text="@string/Topic3"
         app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 

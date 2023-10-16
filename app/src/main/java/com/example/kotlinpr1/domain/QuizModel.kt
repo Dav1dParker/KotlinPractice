@@ -7,28 +7,19 @@ data class QuizModel(
     @SerializedName("category")
     @Expose
     val category: String,
-    @SerializedName("id")
-    @Expose
-    val id: String,
-    @SerializedName("correctAnswer")
-    @Expose
-    val correctAnswer: String,
-    @SerializedName("incorrectAnswers")
-    @Expose
-    val incorrectAnswers: List<String>? = null,
-    @SerializedName("question")
-    @Expose
-    val question: String,
-    @SerializedName("tags")
-    @Expose
-    val tags: List<String>? = null,
     @SerializedName("type")
     @Expose
     val type: String,
     @SerializedName("difficulty")
     @Expose
     val difficulty: String,
-    @SerializedName("regions")
+    @SerializedName("question")
     @Expose
-    val regions: List<Any>? = null
+    val question: String,
+    @SerializedName("correct_answer")
+    @Expose
+    val correctAnswer: String,
+    @SerializedName("incorrect_answers")
+    @Expose
+    val incorrectAnswers: List<String>
 )
