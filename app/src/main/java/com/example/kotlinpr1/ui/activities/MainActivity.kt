@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_ShowDatabase -> {
                     //show toast with blank text
                     replaceFragment(SecondFragment(), it.title.toString())
-                    Toast.makeText(this, "To do", Toast.LENGTH_SHORT).show()
                 }
 
                 R.id.nav_logOut -> {
