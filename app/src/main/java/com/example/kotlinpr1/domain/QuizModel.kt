@@ -1,7 +1,5 @@
 package com.example.kotlinpr1.domain
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
 data class QuizModel(
     val category: String? = null,
     val type: String? = null,

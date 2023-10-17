@@ -21,20 +21,6 @@ class ThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*val navController = NavHostFragment.findNavController(this)
-
-        binding.FirstFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_thirdFragment_to_firstFragment)
-        }
-
-        binding.SecondFragmentBtn.setOnClickListener {
-            navController.navigate(R.id.action_thirdFragment_to_secondFragment)
-        }
-
-        binding.backBtn.setOnClickListener {
-            navController.popBackStack()
-        }*/
     }
 
 }

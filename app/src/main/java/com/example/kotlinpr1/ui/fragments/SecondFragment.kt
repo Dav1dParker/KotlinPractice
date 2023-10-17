@@ -1,6 +1,5 @@
 package com.example.kotlinpr1.ui.fragments
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +30,7 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        quizViewModel.getAll.observe(viewLifecycleOwner){
+        quizViewModel.getAll.observe(viewLifecycleOwner) {
             binding.questionHere.text = it.last().Question
             binding.ans1.text = it.last().Answer1
             binding.ans2.text = it.last().Answer2
@@ -55,16 +54,11 @@ class SecondFragment : Fragment() {
     }
 
 
-
-    fun CheckIfCorrect(choose: Int)
-    {
-        if (choose == 1)
-        {
+    fun CheckIfCorrect(choose: Int) {
+        if (choose == 1) {
             //Make toast that answer is correct
             Toast.makeText(context, getString(R.string.Correct), Toast.LENGTH_SHORT).show()
-        }
-        else
-        {
+        } else {
             //Make toast that answer is incorrect
             Toast.makeText(context, getString(R.string.Incorrect), Toast.LENGTH_SHORT).show()
         }

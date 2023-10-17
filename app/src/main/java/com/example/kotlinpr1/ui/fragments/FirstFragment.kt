@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.kotlinpr1.R
 import com.example.kotlinpr1.data.repositories.QuestionsEntity
 import com.example.kotlinpr1.databinding.FragmentFirstBinding
@@ -38,10 +37,6 @@ class FirstFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //println("First Fragment")
-        //initialize view model
-        //quizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
-        //println("Second Fragment")
     }
 
     override fun onCreateView(
@@ -119,9 +114,7 @@ class FirstFragment : Fragment() {
 
                 //println(resultArray)
                 //adding data to database
-                //val entity = QuestionsEntity(null, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
                 val temp = resultArray[5] as ArrayList<*>
-                //println(resultArray[3].toString() + "!" + resultArray[4].toString() + "!" + temp[0].toString() + "!" + temp[1].toString() + "!" + temp[2].toString())
                 val entity = QuestionsEntity(
                     null,
                     resultArray[3].toString(),
@@ -140,13 +133,6 @@ class FirstFragment : Fragment() {
             //Quiz Logic ends
         }
 
-        binding.ThirdFragmentBtn.setOnClickListener {
-            //navController.navigate(R.id.action_firstFragment_to_thirdFragment)
-        }
-
-        binding.backBtn.setOnClickListener {
-            //navController.popBackStack()
-        }
 
         //On click listener to change language form english to russian and vice versa
         binding.LanguageChange.setOnClickListener {
@@ -165,12 +151,5 @@ class FirstFragment : Fragment() {
             startActivity(refresh)
         }
 
-        //db logic starts
-        /*val entity = QuestionsEntity(null, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
-        quizViewModel.insertQuestions(entity)
-        quizViewModel.getAll.observe(viewLifecycleOwner){
-            //println(it)
-        }*/
-        //db logic ends
     }
 }

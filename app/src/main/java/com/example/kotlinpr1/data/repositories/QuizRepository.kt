@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 class QuizRepository(private val QuestionDao: QuestionDao) {
     val getAll: LiveData<List<QuestionsEntity>> = QuestionDao.getAll()
 
-    suspend fun insertWeather(weather: QuestionsEntity){
+    suspend fun insertWeather(weather: QuestionsEntity) {
         QuestionDao.insertWeather(weather)
     }
 
