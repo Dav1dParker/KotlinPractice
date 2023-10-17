@@ -6,9 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import com.example.kotlinpr1.R
 import com.example.kotlinpr1.data.repositories.QuestionsEntity
 import com.example.kotlinpr1.databinding.FragmentFirstBinding
 import com.example.kotlinpr1.domain.ApiInterface
@@ -62,7 +64,8 @@ class FirstFragment : Fragment() {
             //val doneLayout: ConstraintLayout
             //Get data from API using retrofit
             val retrofit =
-                Retrofit.Builder().baseUrl(endpoint).addConverterFactory(GsonConverterFactory.create())
+                Retrofit.Builder().baseUrl(endpoint)
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build()
             val service = retrofit.create(ApiInterface::class.java)
             var newjson: String = ""
@@ -80,15 +83,15 @@ class FirstFragment : Fragment() {
 
                         // Convert raw JSON to pretty JSON using GSON library
                         val gson = GsonBuilder().setPrettyPrinting().create()
-                        val prettyJson = gson.toJson(
+                        newjson = gson.toJson(
                             JsonParser.parseString(
                                 response.body()
                                     ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
                             )
                         )
 
-                        Log.d("Pretty Printed JSON :", prettyJson)
-                        newjson = prettyJson
+                        Log.d("Pretty Printed JSON :", newjson)
+                        //newjson = prettyJson
 
                     } else {
 
@@ -106,7 +109,10 @@ class FirstFragment : Fragment() {
                     resultArray.add(it.category ?: "")
                     resultArray.add(it.type ?: "")
                     resultArray.add(it.difficulty ?: "")
-                    resultArray.add(it.question ?: "")
+                    var temp: String = it.question ?: ""
+                    temp = temp.replace("\\\\[^\"]+;".toRegex(), "")
+                    temp = temp.replace("&[^;]+;".toRegex(), "")
+                    resultArray.add(temp)
                     resultArray.add(it.correct_answer ?: "")
                     resultArray.add(it.incorrect_answers ?: ArrayList<String>())
                 }
@@ -116,8 +122,18 @@ class FirstFragment : Fragment() {
                 //val entity = QuestionsEntity(null, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
                 val temp = resultArray[5] as ArrayList<*>
                 //println(resultArray[3].toString() + "!" + resultArray[4].toString() + "!" + temp[0].toString() + "!" + temp[1].toString() + "!" + temp[2].toString())
-                val entity = QuestionsEntity(null, resultArray[3].toString(), resultArray[4].toString(), temp[0].toString(), temp[1].toString(), temp[2].toString())
+                val entity = QuestionsEntity(
+                    null,
+                    resultArray[3].toString(),
+                    resultArray[4].toString(),
+                    temp[0].toString(),
+                    temp[1].toString(),
+                    temp[2].toString()
+                )
                 quizViewModel.insertQuestions(entity)
+                requireActivity().runOnUiThread {
+                    Toast.makeText(context, getString(R.string.Done), Toast.LENGTH_SHORT).show()
+                }
             }
 
 

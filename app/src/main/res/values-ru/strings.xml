@@ -26,6 +26,7 @@
     <string name="Close">Закрыть</string>
     <string name="Correct">Правильный ответ!</string>
     <string name="Incorrect">Неправильный ответ!</string>
+    <string name="Done">Завершено</string>
     <string name="AppVersion">Версия приложения: 0.4</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 
