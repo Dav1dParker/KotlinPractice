@@ -14,6 +14,6 @@ interface QuestionDao {
     @Query("SELECT * FROM QuestionsTable")
     fun getAll(): LiveData<List<QuestionsEntity>>
 
-    @Query("DELETE FROM QuestionsTable")
-    suspend fun deleteAll()
+    /*@Query("DELETE FROM QuestionsTable")
+    suspend fun deleteAll()*/
 }

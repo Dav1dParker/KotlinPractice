@@ -27,9 +27,9 @@ class QuizViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun deleteAll(){
+/*    fun deleteAll(){
         viewModelScope.launch(Dispatchers.IO){
             repository.deleteAll()
         }
-    }
+    }*/
 }

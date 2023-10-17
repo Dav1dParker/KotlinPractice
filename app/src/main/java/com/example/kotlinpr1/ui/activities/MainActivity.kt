@@ -3,10 +3,14 @@ package com.example.kotlinpr1.ui.activities
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.kotlinpr1.R
 import com.example.kotlinpr1.data.repositories.QuestionDao
 import com.example.kotlinpr1.data.repositories.QuestionsEntity
@@ -15,9 +19,14 @@ import com.example.kotlinpr1.data.repositories.QuizRepository
 import com.example.kotlinpr1.databinding.ActivityMainBinding
 import com.example.kotlinpr1.domain.ApiInterface
 import com.example.kotlinpr1.ui.fragments.FirstFragment
+import com.example.kotlinpr1.ui.fragments.SecondFragment
 import com.example.kotlinpr1.ui.fragments.ThirdFragment
 import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
+import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -26,13 +35,18 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
+    //private val QuizViewModel: QuizViewModel by activityViewModels()
     private lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
+    //var getAll: LiveData<List<QuestionsEntity>> = QuizViewModel(application).getAll
+    //private lateinit var repository: QuizRepository
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //QuizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
 
 
         //Quiz Logic starts
@@ -45,22 +59,29 @@ class MainActivity : AppCompatActivity() {
         val call = service.getQuizResults(5, 10, "easy", "multiple")
 
 
-        
+
 
 
         //Quiz Logic ends
 
 
         //DB logic starts
-        val QuestionDao = QuizDataBase.getDataBase(application).QuestionDao()
+        /*val weatherDao = QuizDataBase.getDataBase(application).QuestionDao()
+        repository = QuizRepository(weatherDao)
+        getAll = repository.getAll
+        val entity = QuestionsEntity(1, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")*/
+        //QuizViewModel.insertQuestions(entity)
+
+        /*val QuestionDao = QuizDataBase.getDataBase(application).QuestionDao()
         val repository = QuizRepository(QuestionDao)
-        val entity = QuestionsEntity(1, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
         repository.insertQuestions(entity)
         repository.getAll.observe(this){
             it.forEach{
                 println(it)
             }
-        }
+        }*/
+
+
 
         //DB logic ends
 
@@ -100,6 +121,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_ShowDatabase -> {
                     //show toast with blank text
+                    replaceFragment(SecondFragment(), it.title.toString())
                     Toast.makeText(this, "To do", Toast.LENGTH_SHORT).show()
                 }
 
@@ -126,6 +148,7 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.closeDrawers()
         setTitle(title)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {

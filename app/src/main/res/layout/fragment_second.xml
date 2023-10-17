@@ -8,7 +8,7 @@
     tools:context=".ui.fragments.SecondFragment">
 
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/questionHere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Question"
@@ -49,43 +49,47 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:backgroundTint="@color/mainBackground"
+        android:id="@+id/ans1"
         android:layout_width="253dp"
         android:layout_height="53dp"
         android:layout_marginTop="104dp"
         android:text="@string/Answer1"
-        app:layout_constraintEnd_toEndOf="@+id/text2"
+        app:layout_constraintEnd_toEndOf="@+id/questionHere"
         app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/text2"
-        app:layout_constraintTop_toBottomOf="@+id/text2" />
+        app:layout_constraintStart_toStartOf="@+id/questionHere"
+        app:layout_constraintTop_toBottomOf="@+id/questionHere" />
 
     <Button
-        android:id="@+id/button6"
+        android:backgroundTint="@color/mainBackground"
+        android:id="@+id/ans2"
         android:layout_width="253dp"
         android:layout_height="53dp"
         android:text="@string/Answer2"
-        app:layout_constraintEnd_toEndOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="@+id/ans1"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintStart_toStartOf="@+id/ans1"
+        app:layout_constraintTop_toBottomOf="@+id/ans1" />
 
     <Button
-        android:id="@+id/button7"
+        android:backgroundTint="@color/mainBackground"
+        android:id="@+id/ans3"
         android:layout_width="253dp"
         android:layout_height="53dp"
         android:text="@string/Answer3"
-        app:layout_constraintEnd_toEndOf="@+id/button6"
+        app:layout_constraintEnd_toEndOf="@+id/ans2"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintStart_toStartOf="@+id/ans2"
+        app:layout_constraintTop_toBottomOf="@+id/ans2" />
 
     <Button
-        android:id="@+id/button8"
+        android:backgroundTint="@color/mainBackground"
+        android:id="@+id/ans4"
         android:layout_width="253dp"
         android:layout_height="53dp"
         android:text="@string/Answer4"
-        app:layout_constraintEnd_toEndOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintEnd_toEndOf="@+id/ans3"
+        app:layout_constraintStart_toStartOf="@+id/ans3"
+        app:layout_constraintTop_toBottomOf="@+id/ans3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

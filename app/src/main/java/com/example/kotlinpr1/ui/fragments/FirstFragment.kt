@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import com.example.kotlinpr1.data.repositories.QuestionsEntity
 import com.example.kotlinpr1.databinding.FragmentFirstBinding
 import com.example.kotlinpr1.ui.activities.MainActivity
+import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 import java.util.Locale
 
 
@@ -15,6 +19,16 @@ import java.util.Locale
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
+    private val quizViewModel: QuizViewModel by activityViewModels()
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        println("First Fragment")
+        //initialize view model
+        //quizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
+        println("Second Fragment")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,5 +72,13 @@ class FirstFragment : Fragment() {
             activity?.finish()
             startActivity(refresh)
         }
+
+        //db logic starts
+        val entity = QuestionsEntity(null, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
+        quizViewModel.insertQuestions(entity)
+        quizViewModel.getAll.observe(viewLifecycleOwner){
+            println(it)
+        }
+        //db logic ends
     }
 }
