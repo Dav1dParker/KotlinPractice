@@ -1,11 +1,14 @@
 package com.example.kotlinpr1.data.repositories
 
 import androidx.lifecycle.LiveData
+import dagger.hilt.android.scopes.ActivityRetainedScoped
+import javax.inject.Inject
 
-class QuizRepository(private val QuestionDao: QuestionDao) {
+@ActivityRetainedScoped
+class QuizRepository @Inject constructor(private val QuestionDao: QuestionDao) {
     val getAll: LiveData<List<QuestionsEntity>> = QuestionDao.getAll()
 
-    suspend fun insertWeather(weather: QuestionsEntity){
+    suspend fun insertWeather(weather: QuestionsEntity) {
         QuestionDao.insertWeather(weather)
     }
 

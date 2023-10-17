@@ -3,38 +3,29 @@ package com.example.kotlinpr1.ui.activities
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.*
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.fragment.app.Fragment
 import com.example.kotlinpr1.R
-import com.example.kotlinpr1.data.repositories.QuestionDao
-import com.example.kotlinpr1.data.repositories.QuestionsEntity
-import com.example.kotlinpr1.data.repositories.QuizDataBase
-import com.example.kotlinpr1.data.repositories.QuizRepository
 import com.example.kotlinpr1.databinding.ActivityMainBinding
-import com.example.kotlinpr1.domain.ApiInterface
 import com.example.kotlinpr1.ui.fragments.FirstFragment
 import com.example.kotlinpr1.ui.fragments.SecondFragment
 import com.example.kotlinpr1.ui.fragments.ThirdFragment
-import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
-import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 import com.google.android.material.navigation.NavigationView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity @Inject constructor(
+    private val ff: FirstFragment,
+    private val sf: SecondFragment,
+    private val tf: ThirdFragment
+) : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainActivityViewModel
+
+    //private lateinit var viewModel: MainActivityViewModel
     //private val QuizViewModel: QuizViewModel by activityViewModels()
     private lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
@@ -46,20 +37,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //QuizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
-
 
         //Quiz Logic starts
-        val endpoint: String = "https://opentdb.com/"
+        /*val endpoint: String = "https://opentdb.com/"
 
         //val doneLayout: ConstraintLayout
         //Get data from API using retrofit
         val retrofit = Retrofit.Builder().baseUrl(endpoint).addConverterFactory(GsonConverterFactory.create()).build()
         val service = retrofit.create(ApiInterface::class.java)
-        val call = service.getQuizResults(5, 10, "easy", "multiple")
-
-
-
+        val call = service.getQuizResults(5, 10, "easy", "multiple")*/
 
 
         //Quiz Logic ends
@@ -82,7 +68,6 @@ class MainActivity : AppCompatActivity() {
         }*/
 
 
-
         //DB logic ends
 
 
@@ -103,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> {
                     //open first fragment
-                    replaceFragment(FirstFragment(), it.title.toString())
+                    replaceFragment(ff, it.title.toString())
                     /*val transaction = supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.nav_host_fragment, FirstFragment())
                     transaction.commit()*/
@@ -111,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_settings -> {
                     //open third fragment
-                    replaceFragment(ThirdFragment(), it.title.toString())
+                    replaceFragment(tf, it.title.toString())
                     /*val transaction = supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.nav_host_fragment, ThirdFragment())
                     transaction.commit()*/
@@ -121,7 +106,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_ShowDatabase -> {
                     //show toast with blank text
-                    replaceFragment(SecondFragment(), it.title.toString())
+                    replaceFragment(sf, it.title.toString())
                     Toast.makeText(this, "To do", Toast.LENGTH_SHORT).show()
                 }
 

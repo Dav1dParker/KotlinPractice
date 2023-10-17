@@ -6,28 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.kotlinpr1.data.repositories.QuestionsEntity
 import com.example.kotlinpr1.databinding.FragmentFirstBinding
 import com.example.kotlinpr1.ui.activities.MainActivity
 import com.example.kotlinpr1.ui.viewModel.QuizViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
 
-@Suppress("DEPRECATION")
+@AndroidEntryPoint
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
-    private val quizViewModel: QuizViewModel by activityViewModels()
+    private val quizViewModel: QuizViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        println("First Fragment")
-        //initialize view model
-        //quizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
-        println("Second Fragment")
+
     }
 
     override fun onCreateView(
@@ -44,7 +41,7 @@ class FirstFragment : Fragment() {
 
         //val navController = NavHostFragment.findNavController(this)
 
-        binding.SecondFragmentBtn.setOnClickListener {
+        /*binding.SecondFragmentBtn.setOnClickListener {
             //navController.navigate(R.id.action_firstFragment_to_secondFragment)
         }
 
@@ -54,7 +51,7 @@ class FirstFragment : Fragment() {
 
         binding.backBtn.setOnClickListener {
             //navController.popBackStack()
-        }
+        }*/
 
         //On click listener to change language form english to russian and vice versa
         binding.LanguageChange.setOnClickListener {
@@ -74,9 +71,16 @@ class FirstFragment : Fragment() {
         }
 
         //db logic starts
-        val entity = QuestionsEntity(null, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
+        val entity = QuestionsEntity(
+            null,
+            "What is the capital of India?",
+            "Delhi",
+            "Mumbai",
+            "Kolkata",
+            "Chennai"
+        )
         quizViewModel.insertQuestions(entity)
-        quizViewModel.getAll.observe(viewLifecycleOwner){
+        quizViewModel.getAll.observe(viewLifecycleOwner) {
             println(it)
         }
         //db logic ends
