@@ -24,10 +24,10 @@ class FirstFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        println("First Fragment")
+        //println("First Fragment")
         //initialize view model
         //quizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
-        println("Second Fragment")
+        //println("Second Fragment")
     }
 
     override fun onCreateView(
@@ -77,7 +77,7 @@ class FirstFragment : Fragment() {
         val entity = QuestionsEntity(null, "What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai")
         quizViewModel.insertQuestions(entity)
         quizViewModel.getAll.observe(viewLifecycleOwner){
-            println(it)
+            //println(it)
         }
         //db logic ends
     }

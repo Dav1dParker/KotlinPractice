@@ -1,6 +1,7 @@
 package com.example.kotlinpr1.ui.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -24,9 +25,13 @@ import com.example.kotlinpr1.ui.fragments.ThirdFragment
 import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
 import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 import com.google.android.material.navigation.NavigationView
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -35,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
+
     //private val QuizViewModel: QuizViewModel by activityViewModels()
     private lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
@@ -54,12 +60,47 @@ class MainActivity : AppCompatActivity() {
 
         //val doneLayout: ConstraintLayout
         //Get data from API using retrofit
-        val retrofit = Retrofit.Builder().baseUrl(endpoint).addConverterFactory(GsonConverterFactory.create()).build()
+        val retrofit =
+            Retrofit.Builder().baseUrl(endpoint).addConverterFactory(GsonConverterFactory.create())
+                .build()
         val service = retrofit.create(ApiInterface::class.java)
-        val call = service.getQuizResults(5, 10, "easy", "multiple")
+        var newjson: String = ""
+        //val call = service.getQuizResults()
 
 
+        CoroutineScope(Dispatchers.IO).launch {
+            /*
+             * For @Query: You need to replace the following line with val response = service.getEmployees(2)
+             * For @Path: You need to replace the following line with val response = service.getEmployee(53)
+             */
 
+            // Do the GET request and get response
+            val response = service.getData()
+
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+
+                    // Convert raw JSON to pretty JSON using GSON library
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(
+                            response.body()
+                                ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
+                        )
+                    )
+
+                    Log.d("Pretty Printed JSON :", prettyJson)
+                    newjson = prettyJson
+
+                } else {
+
+                    Log.e("RETROFIT_ERROR", response.code().toString())
+
+                }
+            }
+
+            println(newjson)
+        }
 
 
         //Quiz Logic ends
@@ -80,7 +121,6 @@ class MainActivity : AppCompatActivity() {
                 println(it)
             }
         }*/
-
 
 
         //DB logic ends
