@@ -4,22 +4,10 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class QuizModel(
-    @SerializedName("category")
-    @Expose
-    val category: String,
-    @SerializedName("type")
-    @Expose
-    val type: String,
-    @SerializedName("difficulty")
-    @Expose
-    val difficulty: String,
-    @SerializedName("question")
-    @Expose
-    val question: String,
-    @SerializedName("correct_answer")
-    @Expose
-    val correctAnswer: String,
-    @SerializedName("incorrect_answers")
-    @Expose
-    val incorrectAnswers: List<String>
+    var category: String? = null,
+    var type: String? = null,
+    var difficulty: String? = null,
+    var question: String? = null,
+    var correct_answer: String? = null,
+    var incorrect_answers: ArrayList<String>? = null
 )
