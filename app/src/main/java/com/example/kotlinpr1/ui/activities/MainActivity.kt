@@ -19,12 +19,15 @@ import com.example.kotlinpr1.data.repositories.QuizDataBase
 import com.example.kotlinpr1.data.repositories.QuizRepository
 import com.example.kotlinpr1.databinding.ActivityMainBinding
 import com.example.kotlinpr1.domain.ApiInterface
+import com.example.kotlinpr1.domain.QuizModel
+import com.example.kotlinpr1.domain.QuizResponse
 import com.example.kotlinpr1.ui.fragments.FirstFragment
 import com.example.kotlinpr1.ui.fragments.SecondFragment
 import com.example.kotlinpr1.ui.fragments.ThirdFragment
 import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
 import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 import com.google.android.material.navigation.NavigationView
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -54,10 +57,8 @@ class MainActivity : AppCompatActivity() {
 
         //QuizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
 
-
-        //Quiz Logic starts
+        /*//Quiz Logic starts
         val endpoint: String = "https://opentdb.com/"
-
         //val doneLayout: ConstraintLayout
         //Get data from API using retrofit
         val retrofit =
@@ -65,14 +66,11 @@ class MainActivity : AppCompatActivity() {
                 .build()
         val service = retrofit.create(ApiInterface::class.java)
         var newjson: String = ""
-        //val call = service.getQuizResults()
-
-
         CoroutineScope(Dispatchers.IO).launch {
-            /*
+            *//*
              * For @Query: You need to replace the following line with val response = service.getEmployees(2)
              * For @Path: You need to replace the following line with val response = service.getEmployee(53)
-             */
+             *//*
 
             // Do the GET request and get response
             val response = service.getData()
@@ -98,12 +96,28 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
+            val gson = Gson()
+            val quizResponse: QuizResponse = gson.fromJson(newjson, QuizResponse::class.java)!!
 
-            println(newjson)
+            val quizModel = quizResponse.results?.firstOrNull()
+            val resultArray = mutableListOf<Any>()
+
+            quizModel?.let {
+                resultArray.add(it.category ?: "")
+                resultArray.add(it.type ?: "")
+                resultArray.add(it.difficulty ?: "")
+                resultArray.add(it.question ?: "")
+                resultArray.add(it.correct_answer ?: "")
+                resultArray.add(it.incorrect_answers ?: emptyList<String>())
+            }
+
+            println(resultArray)
+
+
         }
 
 
-        //Quiz Logic ends
+        //Quiz Logic ends*/
 
 
         //DB logic starts
@@ -143,6 +157,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> {
                     //open first fragment
+                    println(it.title.toString())
                     replaceFragment(FirstFragment(), it.title.toString())
                     /*val transaction = supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.nav_host_fragment, FirstFragment())
@@ -176,6 +191,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        replaceFragment(FirstFragment(), "Home")
 
 
     }

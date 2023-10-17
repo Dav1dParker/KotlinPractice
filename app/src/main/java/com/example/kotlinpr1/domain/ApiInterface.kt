@@ -10,6 +10,6 @@ import retrofit2.http.Query
 
 interface ApiInterface {
     //Describe the request type and the relative URL//
-    @GET("api.php?amount=10")
+    @GET("api.php?amount=1&type=multiple")
     suspend fun getData(): Response<ResponseBody>
 }

@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -62,10 +62,11 @@ dependencies {
     kapt("androidx.room:room-compiler:2.5.2")
     annotationProcessor("androidx.room:room-compiler:2.5.2")
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.google.code.gson:gson:2.10.1")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
 }
