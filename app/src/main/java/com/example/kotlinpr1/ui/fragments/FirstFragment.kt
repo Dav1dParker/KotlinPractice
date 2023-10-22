@@ -56,7 +56,6 @@ class FirstFragment : Fragment() {
         binding.StartQuizBtn.setOnClickListener {
             //Quiz Logic starts
             val endpoint: String = "https://opentdb.com/"
-            //val doneLayout: ConstraintLayout
             //Get data from API using retrofit
             val retrofit =
                 Retrofit.Builder().baseUrl(endpoint)

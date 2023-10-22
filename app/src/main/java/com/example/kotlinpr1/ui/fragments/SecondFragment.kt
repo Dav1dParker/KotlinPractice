@@ -18,6 +18,10 @@ class SecondFragment : Fragment() {
 
     private val quizViewModel: QuizViewModel by activityViewModels()
 
+    private val ansMass = arrayListOf<String>()
+    private var correctAnswer = ""
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,34 +32,41 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         quizViewModel.getAll.observe(viewLifecycleOwner) {
+            ansMass.clear()
             binding.questionHere.text = it.last().Question
-            binding.ans1.text = it.last().Answer1
-            binding.ans2.text = it.last().Answer2
-            binding.ans3.text = it.last().Answer3
-            binding.ans4.text = it.last().Answer4
+            ansMass.add(it.last().Answer1)
+            ansMass.add(it.last().Answer2)
+            ansMass.add(it.last().Answer3)
+            ansMass.add(it.last().Answer4)
+            correctAnswer = it.last().Answer1
+            Toast.makeText(context, correctAnswer, Toast.LENGTH_SHORT).show()
+            ansMass.shuffle()
+            binding.ans1.text = ansMass[0]
+            binding.ans2.text = ansMass[1]
+            binding.ans3.text = ansMass[2]
+            binding.ans4.text = ansMass[3]
         }
+
 
         binding.ans1.setOnClickListener {
-            CheckIfCorrect(1)
+            CheckIfCorrect(0)
         }
         binding.ans2.setOnClickListener {
-            CheckIfCorrect(2)
+            CheckIfCorrect(1)
         }
         binding.ans3.setOnClickListener {
-            CheckIfCorrect(3)
+            CheckIfCorrect(2)
         }
         binding.ans4.setOnClickListener {
-            CheckIfCorrect(4)
+            CheckIfCorrect(3)
         }
 
     }
 
 
     fun CheckIfCorrect(choose: Int) {
-        if (choose == 1) {
+        if (ansMass[choose] == correctAnswer) {
             //Make toast that answer is correct
             Toast.makeText(context, getString(R.string.Correct), Toast.LENGTH_SHORT).show()
         } else {
