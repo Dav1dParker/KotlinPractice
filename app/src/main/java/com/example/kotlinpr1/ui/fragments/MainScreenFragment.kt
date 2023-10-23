@@ -15,6 +15,7 @@ import com.example.kotlinpr1.databinding.FragmentMainscreenBinding
 import com.example.kotlinpr1.domain.ApiInterface
 import com.example.kotlinpr1.domain.QuizResponse
 import com.example.kotlinpr1.ui.activities.MainActivity
+import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
 import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -34,6 +35,7 @@ class MainScreenFragment : Fragment() {
 
     private lateinit var binding: FragmentMainscreenBinding
     private val quizViewModel: QuizViewModel by activityViewModels()
+    private val pointsHandler: MainActivityViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -130,7 +132,7 @@ class MainScreenFragment : Fragment() {
                         //adding data to database
                         val temp = resultArray[5] as ArrayList<*>
                         val entity = QuestionsEntity(
-                            null,
+                            i,
                             resultArray[3].toString(),
                             resultArray[4].toString(),
                             temp[0].toString(),
@@ -138,8 +140,14 @@ class MainScreenFragment : Fragment() {
                             temp[2].toString()
                         )
                         quizViewModel.insertQuestions(entity)
+                        withContext(Dispatchers.Main){
+                            Toast.makeText(context, getString(R.string.Done), Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
+                /*requireActivity().runOnUiThread {
+                    Toast.makeText(context, getString(R.string.Done), Toast.LENGTH_SHORT).show()
+                }*/
             }
             catch (e: Exception)
             {
@@ -147,10 +155,6 @@ class MainScreenFragment : Fragment() {
                     Toast.makeText(context, R.string.DBerror, Toast.LENGTH_LONG).show()
                 }
 
-            }
-
-            requireActivity().runOnUiThread {
-                Toast.makeText(context, getString(R.string.Done), Toast.LENGTH_SHORT).show()
             }
         }
         //Quiz Logic ends
@@ -171,6 +175,12 @@ class MainScreenFragment : Fragment() {
             val refresh = Intent(activity, MainActivity::class.java)
             activity?.finish()
             startActivity(refresh)
+        }
+
+        binding.startQuizButton.setOnClickListener {
+            pointsHandler.genNewOrder()
+            //println(pointsHandler.getOrder())
+            pointsHandler.clearCounter()
         }
 
     }

@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.kotlinpr1.R
 import com.example.kotlinpr1.databinding.FragmentQuestionBinding
 import com.example.kotlinpr1.ui.activities.MainActivity
+import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
 import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 
 
@@ -19,6 +20,7 @@ class QuestionScreenFragment : Fragment() {
     private lateinit var binding: FragmentQuestionBinding
 
     private val quizViewModel: QuizViewModel by activityViewModels()
+    private val pointsHandler: MainActivityViewModel by activityViewModels()
 
     private val ansMass = arrayListOf<String>()
     private var correctAnswer = ""
@@ -37,7 +39,9 @@ class QuestionScreenFragment : Fragment() {
         binding.nextQuestionButton.isEnabled = false
         quizViewModel.getAll.observe(viewLifecycleOwner) {
             ansMass.clear()
-            val questionNumber = (0..10).random()
+            val questionNumber = pointsHandler.getOrder()[pointsHandler.getCounter()]
+            println(questionNumber)
+            //val questionNumber = (0..9).random()
             binding.questionHere.text = it.get(questionNumber).Question
             ansMass.add(it.get(questionNumber).Answer1)
             ansMass.add(it.get(questionNumber).Answer2)
@@ -65,9 +69,21 @@ class QuestionScreenFragment : Fragment() {
             CheckIfCorrect(3)
         }
 
-        binding.nextQuestionButton.setOnClickListener{
+        binding.nextQuestionButton.setOnClickListener {
             //reload this fragment
-            (activity as MainActivity).replaceFragment(QuestionScreenFragment(), getString(R.string.ShowDatabase))
+            pointsHandler.countPlusPlus()
+            if (pointsHandler.getCounter() == 10) {
+                Toast.makeText(context, "END", Toast.LENGTH_SHORT).show()
+                (activity as MainActivity).replaceFragment(
+                    MainScreenFragment(),
+                    getString(R.string.Home)
+                )
+            } else {
+                (activity as MainActivity).replaceFragment(
+                    QuestionScreenFragment(),
+                    getString(R.string.ShowDatabase)
+                )
+            }
         }
 
     }
@@ -79,20 +95,64 @@ class QuestionScreenFragment : Fragment() {
         if (ansMass[choose] == correctAnswer) {
             //Make toast that answer is correct
             //Toast.makeText(context, getString(R.string.Correct), Toast.LENGTH_SHORT).show()
-            when(choose)
-            {
-                0 -> binding.ans1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedCorrectAnswer))
-                1 -> binding.ans2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedCorrectAnswer))
-                2 -> binding.ans3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedCorrectAnswer))
-                3 -> binding.ans4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedCorrectAnswer))
+            when (choose) {
+                0 -> binding.ans1.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedCorrectAnswer
+                    )
+                )
+
+                1 -> binding.ans2.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedCorrectAnswer
+                    )
+                )
+
+                2 -> binding.ans3.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedCorrectAnswer
+                    )
+                )
+
+                3 -> binding.ans4.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedCorrectAnswer
+                    )
+                )
             }
         } else {
-            when(choose)
-            {
-                0 -> binding.ans1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedWrongAnswer))
-                1 -> binding.ans2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedWrongAnswer))
-                2 -> binding.ans3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedWrongAnswer))
-                3 -> binding.ans4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.HighlightedWrongAnswer))
+            when (choose) {
+                0 -> binding.ans1.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedWrongAnswer
+                    )
+                )
+
+                1 -> binding.ans2.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedWrongAnswer
+                    )
+                )
+
+                2 -> binding.ans3.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedWrongAnswer
+                    )
+                )
+
+                3 -> binding.ans4.setBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.HighlightedWrongAnswer
+                    )
+                )
             }
             //Make toast that answer is incorrect
             //Toast.makeText(context, getString(R.string.Incorrect), Toast.LENGTH_SHORT).show()
@@ -102,32 +162,70 @@ class QuestionScreenFragment : Fragment() {
     }
 
 
-
-
-    private fun disableButtons()
-    {
+    private fun disableButtons() {
         binding.ans1.isEnabled = false
         binding.ans2.isEnabled = false
         binding.ans3.isEnabled = false
         binding.ans4.isEnabled = false
     }
 
-    private fun revealCorrect()
-    {
-        binding.ans1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.wrongAnswer))
-        binding.ans2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.wrongAnswer))
-        binding.ans3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.wrongAnswer))
-        binding.ans4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.wrongAnswer))
+    private fun revealCorrect() {
+        binding.ans1.setBackgroundColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.wrongAnswer
+            )
+        )
+        binding.ans2.setBackgroundColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.wrongAnswer
+            )
+        )
+        binding.ans3.setBackgroundColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.wrongAnswer
+            )
+        )
+        binding.ans4.setBackgroundColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.wrongAnswer
+            )
+        )
         binding.ans1.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
         binding.ans2.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
         binding.ans3.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
         binding.ans4.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-        when(correctAnswer)
-        {
-            ansMass[0] -> binding.ans1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctAnswer))
-            ansMass[1] -> binding.ans2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctAnswer))
-            ansMass[2] -> binding.ans3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctAnswer))
-            ansMass[3] -> binding.ans4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctAnswer))
+        when (correctAnswer) {
+            ansMass[0] -> binding.ans1.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.correctAnswer
+                )
+            )
+
+            ansMass[1] -> binding.ans2.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.correctAnswer
+                )
+            )
+
+            ansMass[2] -> binding.ans3.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.correctAnswer
+                )
+            )
+
+            ansMass[3] -> binding.ans4.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.correctAnswer
+                )
+            )
         }
     }
 
