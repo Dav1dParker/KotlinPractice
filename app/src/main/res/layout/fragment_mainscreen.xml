@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/secondaryBackground"
-    tools:context=".ui.fragments.FirstFragment">
+    tools:context=".ui.fragments.MainScreenFragment">
 
     <Button
         android:backgroundTint="@color/mainBackground"
@@ -32,12 +32,12 @@
 
 
     <Button
-        android:id="@+id/StartQuiz_btn"
+        android:id="@+id/UpdateDBButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
         android:backgroundTint="@color/mainBackground"
-        android:text="@string/Start"
+        android:text="@string/UpdateDB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

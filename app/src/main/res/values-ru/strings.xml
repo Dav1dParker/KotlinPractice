@@ -28,6 +28,9 @@
     <string name="Incorrect">Неправильный ответ!</string>
     <string name="Done">Завершено</string>
     <string name="ClearDB">Очистить базу данных</string>
+    <string name="NextQuestion">Следующий вопрос -></string>
+    <string name="UpdateDB">Обновить базу вопросов</string>
+    <string name="DBerror">Ошибка сети</string>
     <string name="AppVersion">Версия приложения: 0.5</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 

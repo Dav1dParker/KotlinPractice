@@ -6,21 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.kotlinpr1.databinding.FragmentThirdBinding
+import com.example.kotlinpr1.databinding.FragmentSettingsBinding
 import com.example.kotlinpr1.ui.viewModel.QuizViewModel
 
-class ThirdFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
-    private lateinit var binding: FragmentThirdBinding
+    private lateinit var binding: FragmentSettingsBinding
     private val quizViewModel: QuizViewModel by activityViewModels()
-
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentThirdBinding.inflate(inflater, container, false)
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

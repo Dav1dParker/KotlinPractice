@@ -9,9 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.kotlinpr1.R
 import com.example.kotlinpr1.databinding.ActivityMainBinding
-import com.example.kotlinpr1.ui.fragments.FirstFragment
-import com.example.kotlinpr1.ui.fragments.SecondFragment
-import com.example.kotlinpr1.ui.fragments.ThirdFragment
+import com.example.kotlinpr1.ui.fragments.MainScreenFragment
+import com.example.kotlinpr1.ui.fragments.QuestionScreenFragment
+import com.example.kotlinpr1.ui.fragments.SettingsFragment
 import com.example.kotlinpr1.ui.viewModel.MainActivityViewModel
 import com.google.android.material.navigation.NavigationView
 
@@ -47,18 +47,18 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> {
                     //open first fragment
                     println(it.title.toString())
-                    replaceFragment(FirstFragment(), it.title.toString())
+                    replaceFragment(MainScreenFragment(), it.title.toString())
                 }
 
                 R.id.nav_settings -> {
                     //open third fragment
-                    replaceFragment(ThirdFragment(), it.title.toString())
+                    replaceFragment(SettingsFragment(), it.title.toString())
 
                 }
 
                 R.id.nav_ShowDatabase -> {
                     //show toast with blank text
-                    replaceFragment(SecondFragment(), it.title.toString())
+                    replaceFragment(QuestionScreenFragment(), it.title.toString())
                 }
 
                 R.id.nav_logOut -> {
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        replaceFragment(FirstFragment(), "Home")
+        replaceFragment(MainScreenFragment(), "Home")
 
 
     }

@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.example.kotlinpr1.ui.fragments.FirstFragment"
+        android:name="com.example.kotlinpr1.ui.fragments.MainScreenFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_mainscreen">
         <action
             android:id="@+id/action_firstFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
@@ -20,9 +20,9 @@
 
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.example.kotlinpr1.ui.fragments.SecondFragment"
+        android:name="com.example.kotlinpr1.ui.fragments.QuestionScreenFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_question">
         <action
             android:id="@+id/action_secondFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
@@ -33,9 +33,9 @@
 
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.example.kotlinpr1.ui.fragments.ThirdFragment"
+        android:name="com.example.kotlinpr1.ui.fragments.SettingsFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third">
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_thirdFragment_to_firstFragment"
             app:destination="@id/firstFragment" />

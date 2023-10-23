@@ -2,18 +2,18 @@ package com.example.kotlinpr1.data.repositories
 
 import androidx.lifecycle.LiveData
 
-class QuizRepository(private val QuestionDao: QuestionDao) {
-    val getAll: LiveData<List<QuestionsEntity>> = QuestionDao.getAll()
+class QuizRepository(private val questionDao: QuestionDao) {
+    val getAll: LiveData<List<QuestionsEntity>> = questionDao.getAll()
 
-    suspend fun insertWeather(weather: QuestionsEntity) {
-        QuestionDao.insertWeather(weather)
+    suspend fun insertquiz(quiz: QuestionsEntity) {
+        questionDao.insertquiz(quiz)
     }
 
-    fun deleteAll(){
-        QuestionDao.deleteAll()
+    fun deleteAll() {
+        questionDao.deleteAll()
     }
 
     fun insertQuestions(questionsEntity: QuestionsEntity) {
-        QuestionDao.insertWeather(questionsEntity)
+        questionDao.insertquiz(questionsEntity)
     }
 }

@@ -16,20 +16,20 @@ class QuizViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: QuizRepository
 
     init {
-        val weatherDao = QuizDataBase.getDataBase(application).QuestionDao()
-        repository = QuizRepository(weatherDao)
+        val quizDao = QuizDataBase.getDataBase(application).QuestionDao()
+        repository = QuizRepository(quizDao)
         getAll = repository.getAll
     }
 
-    fun insertQuestions(weather: QuestionsEntity) {
+    fun insertQuestions(quiz: QuestionsEntity) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertWeather(weather)
+            repository.insertquiz(quiz)
         }
     }
 
-        fun deleteAll(){
-            viewModelScope.launch(Dispatchers.IO){
-                repository.deleteAll()
-            }
+    fun deleteAll() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAll()
         }
+    }
 }

@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface QuestionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWeather(weather: QuestionsEntity)
+    fun insertquiz(quiz: QuestionsEntity)
 
     @Query("SELECT * FROM QuestionsTable")
     fun getAll(): LiveData<List<QuestionsEntity>>

@@ -29,6 +29,9 @@
     <string name ="Incorrect">Incorrect answer!</string>
     <string name="Done">Done</string>
     <string name="ClearDB">Clear DataBase</string>
+    <string name="NextQuestion">Next Question -></string>
+    <string name="UpdateDB">Update questions base</string>
+    <string name="DBerror">Network error</string>
     <string name ="AppVersion">Version of application: 0.5</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 
