@@ -9,9 +9,9 @@ class QuizRepository(private val QuestionDao: QuestionDao) {
         QuestionDao.insertWeather(weather)
     }
 
-    /*suspend fun deleteAll(){
+    fun deleteAll(){
         QuestionDao.deleteAll()
-    }*/
+    }
 
     fun insertQuestions(questionsEntity: QuestionsEntity) {
         QuestionDao.insertWeather(questionsEntity)

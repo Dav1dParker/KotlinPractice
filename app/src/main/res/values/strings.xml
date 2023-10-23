@@ -28,7 +28,8 @@
     <string name="Correct">Correct answer!</string>
     <string name="Incorrect">Incorrect answer!</string>
     <string name="Done">Done</string>
-    <string name="AppVersion">Version of application: 0.4</string>
+    <string name="ClearDB">Clear DataBase</string>
+    <string name="AppVersion">Version of application: 0.5</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 
 </resources>
