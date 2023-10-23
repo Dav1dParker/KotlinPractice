@@ -31,6 +31,10 @@
     <string name="NextQuestion">Следующий вопрос -></string>
     <string name="UpdateDB">Обновить базу вопросов</string>
     <string name="DBerror">Ошибка сети</string>
+    <string name="EndOfQuiz">Поздравляем с завершением викторины!\n\nВаш результат:</string>
+    <string name="ReturnToMainMenu">Вернуться в главное меню</string>
+    <string name="StartQuizAgain">Начать заново</string>
+    <string name="Points">Очки: </string>
     <string name="AppVersion">Версия приложения: 0.5</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 

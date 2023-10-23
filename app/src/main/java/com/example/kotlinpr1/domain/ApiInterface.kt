@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface ApiInterface {
     //Describe the request type and the relative URL//
-    @GET("api.php?amount=1&type=multiple")
+    @GET("api.php?amount=1&category=18&type=multiple")
     suspend fun getData(): Response<ResponseBody>
 }

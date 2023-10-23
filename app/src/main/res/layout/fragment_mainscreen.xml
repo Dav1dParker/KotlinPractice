@@ -8,6 +8,7 @@
     tools:context=".ui.fragments.MainScreenFragment">
 
     <Button
+        android:textAllCaps="false"
         android:backgroundTint="@color/mainBackground"
         android:id="@+id/button3"
         android:layout_width="222dp"
@@ -17,49 +18,60 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/mainBackground"
+        android:paddingStart="30dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="10dp"
         android:text="@string/MainScreenTitle"
-        android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
-
+        app:layout_constraintVertical_bias="0.182" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/UpdateDBButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
         android:backgroundTint="@color/mainBackground"
         android:text="@string/UpdateDB"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:layout_constraintVertical_bias="0.361" />
+        app:layout_constraintVertical_bias="0.898" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="208dp"
         android:layout_height="25dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/ChooseTopic"
+        android:layout_marginTop="32dp"
         android:gravity="center"
+        android:text="@string/ChooseTopic"
         android:textColor="@color/white"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/text1"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@+id/text1"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/button2"
         android:layout_width="222dp"
         android:layout_height="47dp"
@@ -72,6 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/button4"
         android:layout_width="222dp"
         android:layout_height="47dp"
@@ -85,28 +98,35 @@
 
     <ImageButton
         android:id="@+id/Language_change"
+        android:layout_width="82dp"
+        android:layout_height="60dp"
         android:backgroundTint="@color/mainBackground"
+        android:src="@drawable/localeicon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/localeicon"/>
+        app:layout_constraintVertical_bias="0.041" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/startQuizButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Start"
-        android:textStyle="bold"
         android:backgroundTint="@color/mainBackground"
+        android:paddingStart="80dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="80dp"
+        android:paddingBottom="10dp"
+        android:text="@string/Start"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/UpdateDBButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:layout_constraintVertical_bias="0.695" />
+        app:layout_constraintVertical_bias="0.461" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

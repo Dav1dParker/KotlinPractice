@@ -32,6 +32,10 @@
     <string name="NextQuestion">Next Question -></string>
     <string name="UpdateDB">Update questions base</string>
     <string name="DBerror">Network error</string>
+    <string name="EndOfQuiz">Congratulations with quiz completion!\n\nYour result:</string>
+    <string name="ReturnToMainMenu">Return to main menu</string>
+    <string name="StartQuizAgain">Try again</string>
+    <string name="Points">Points: </string>
     <string name="AppVersion">Version of application: 0.5</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 

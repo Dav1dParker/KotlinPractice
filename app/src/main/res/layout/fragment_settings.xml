@@ -52,6 +52,7 @@
         app:layout_constraintVertical_bias="0.557" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/ClearDatabaseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

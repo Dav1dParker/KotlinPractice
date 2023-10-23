@@ -8,6 +8,10 @@
     tools:context=".ui.fragments.QuestionScreenFragment">
 
     <TextView
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:id="@+id/questionHere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,21 +30,31 @@
 
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/ans1"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="40dp"
         android:background="@color/mainBackground"
         android:text="@string/Answer1"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/questionHere"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/questionHere"
         app:layout_constraintTop_toBottomOf="@+id/questionHere" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/ans2"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -54,7 +68,12 @@
         app:layout_constraintTop_toBottomOf="@+id/ans1" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/ans3"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -68,7 +87,12 @@
         app:layout_constraintTop_toBottomOf="@+id/ans2" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/ans4"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -81,6 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ans3" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/nextQuestionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,9 +117,39 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ans4"
-        app:layout_constraintVertical_bias="0.604" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952" />
+
+    <TextView
+        android:id="@+id/QuestionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/10"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/questionHere"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
+
+    <TextView
+        android:id="@+id/correctAnswersNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Points: 1/10"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/nextQuestionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -140,17 +140,16 @@ class MainScreenFragment : Fragment() {
                             temp[2].toString()
                         )
                         quizViewModel.insertQuestions(entity)
-                        withContext(Dispatchers.Main){
-                            Toast.makeText(context, getString(R.string.Done), Toast.LENGTH_SHORT).show()
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(context, getString(R.string.Done), Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
                 }
                 /*requireActivity().runOnUiThread {
                     Toast.makeText(context, getString(R.string.Done), Toast.LENGTH_SHORT).show()
                 }*/
-            }
-            catch (e: Exception)
-            {
+            } catch (e: Exception) {
                 requireActivity().runOnUiThread {
                     Toast.makeText(context, R.string.DBerror, Toast.LENGTH_LONG).show()
                 }
@@ -181,6 +180,11 @@ class MainScreenFragment : Fragment() {
             pointsHandler.genNewOrder()
             //println(pointsHandler.getOrder())
             pointsHandler.clearCounter()
+            pointsHandler.clearPointsCounter()
+            (activity as MainActivity).replaceFragment(
+                QuestionScreenFragment(),
+                getString(R.string.ShowDatabase)
+            )
         }
 
     }

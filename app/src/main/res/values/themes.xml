@@ -17,6 +17,7 @@
 </style>
     <style name="Button" parent="ThemeOverlay.AppCompat">
         <!--<item name="colorAccent">@color/mainBackground</item>-->
+        textAllCaps="false"
     </style>
 <!-- Base application theme. -->
 <style name="Base.Theme.KotlinPr1" parent="Theme.Material3.DayNight.NoActionBar">

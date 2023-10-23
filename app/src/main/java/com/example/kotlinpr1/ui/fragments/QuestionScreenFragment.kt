@@ -36,6 +36,9 @@ class QuestionScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.QuestionNumber.text = (pointsHandler.getCounter() + 1).toString() + "/10"
+        binding.correctAnswersNumber.text =
+            getString(R.string.Points) + " " + pointsHandler.getPointsCounter().toString() + " / 10"
         binding.nextQuestionButton.isEnabled = false
         quizViewModel.getAll.observe(viewLifecycleOwner) {
             ansMass.clear()
@@ -48,7 +51,7 @@ class QuestionScreenFragment : Fragment() {
             ansMass.add(it.get(questionNumber).Answer3)
             ansMass.add(it.get(questionNumber).Answer4)
             correctAnswer = it.get(questionNumber).Answer1
-            Toast.makeText(context, correctAnswer, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, correctAnswer, Toast.LENGTH_SHORT).show() //for debugging
             ansMass.shuffle()
             binding.ans1.text = ansMass[0]
             binding.ans2.text = ansMass[1]
@@ -73,10 +76,9 @@ class QuestionScreenFragment : Fragment() {
             //reload this fragment
             pointsHandler.countPlusPlus()
             if (pointsHandler.getCounter() == 10) {
-                Toast.makeText(context, "END", Toast.LENGTH_SHORT).show()
                 (activity as MainActivity).replaceFragment(
-                    MainScreenFragment(),
-                    getString(R.string.Home)
+                    EndScreenFragment(),
+                    getString(R.string.ShowDatabase)
                 )
             } else {
                 (activity as MainActivity).replaceFragment(
@@ -94,7 +96,10 @@ class QuestionScreenFragment : Fragment() {
         revealCorrect()
         if (ansMass[choose] == correctAnswer) {
             //Make toast that answer is correct
-            //Toast.makeText(context, getString(R.string.Correct), Toast.LENGTH_SHORT).show()
+            pointsHandler.pointsCounterPlusPlus()
+            binding.correctAnswersNumber.text =
+                getString(R.string.Points) + " " + pointsHandler.getPointsCounter()
+                    .toString() + " / 10"
             when (choose) {
                 0 -> binding.ans1.setBackgroundColor(
                     ContextCompat.getColor(
@@ -154,8 +159,6 @@ class QuestionScreenFragment : Fragment() {
                     )
                 )
             }
-            //Make toast that answer is incorrect
-            //Toast.makeText(context, getString(R.string.Incorrect), Toast.LENGTH_SHORT).show()
         }
         //disableButtons()
         binding.nextQuestionButton.isEnabled = true

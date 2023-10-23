@@ -10,7 +10,8 @@ class MainActivityViewModel : ViewModel() {
 
 
     private var orderArray = listOf<Int>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-    private var counter : Int = 0
+    private var counter: Int = 0
+    private var pointsCounter: Int = 0
     fun genNewOrder() {
         orderArray = orderArray.shuffled()
     }
@@ -19,18 +20,27 @@ class MainActivityViewModel : ViewModel() {
         return orderArray
     }
 
-    fun clearCounter()
-    {
+    fun clearCounter() {
         counter = 0
     }
 
-    fun countPlusPlus()
-    {
+    fun countPlusPlus() {
         counter++
     }
 
-    fun getCounter():Int
-    {
+    fun getCounter(): Int {
         return counter
+    }
+
+    fun clearPointsCounter() {
+        this.pointsCounter = 0
+    }
+
+    fun pointsCounterPlusPlus() {
+        this.pointsCounter++
+    }
+
+    fun getPointsCounter(): Int {
+        return pointsCounter
     }
 }
