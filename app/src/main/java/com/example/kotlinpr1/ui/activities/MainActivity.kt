@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.kotlinpr1.R
 import com.example.kotlinpr1.databinding.ActivityMainBinding
+import com.example.kotlinpr1.ui.fragments.ImageLoader
 import com.example.kotlinpr1.ui.fragments.MainScreenFragment
 import com.example.kotlinpr1.ui.fragments.QuestionScreenFragment
 import com.example.kotlinpr1.ui.fragments.SettingsFragment
@@ -58,7 +59,8 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_ShowDatabase -> {
                     //show toast with blank text
-                    replaceFragment(QuestionScreenFragment(), it.title.toString())
+                    //replaceFragment(QuestionScreenFragment(), it.title.toString())
+                    replaceFragment(ImageLoader(), it.title.toString())
                 }
 
                 R.id.nav_logOut -> {
